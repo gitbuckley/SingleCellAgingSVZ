@@ -1,4 +1,4 @@
-# SingleCellAgingSVZ  
+# Single-cell analysis reveals T cell infiltration in old neurogenic niches
 
   
 Code to analyze RNA sequencing data and generate figures in Dulken, Buckley, Negredo et al (2019).  
