@@ -72,7 +72,7 @@ p<-p+theme(axis.title.x=element_blank())
 p<-p+labs(title=NULL)
 p<-p+scale_fill_manual(values=c("#40BBEC","#EF4136"))
 p <- p + scale_color_manual(values=c("black", "#EF4136", "#40BBEC"))
-ggsave(paste("plots/SupFig5b_Violin_aNSC_qNSC_sd_",num_sd,".pdf",sep=""),p, height=5,width=6)
+ggsave(paste("plots/SupFig5c_Violin_aNSC_qNSC_sd_",num_sd,".pdf",sep=""),p, height=5,width=6)
 
 #===================================================================================================
 # PROPORTIONS

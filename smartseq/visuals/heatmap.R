@@ -1,4 +1,4 @@
-# Fig 2b Blood vs SVZ T cell DEG Heatmap SMART-Seq
+# Sup Fig 3b Blood vs SVZ T cell DEG Heatmap SMART-Seq
 # Matthew Buckley
 
 rm(list = ls())
@@ -33,7 +33,7 @@ load("../seurat/data/top50_DEGs.rda")
 input <- data[rownames(data) %in% top50,] # SUBSET
 input <- input[top50,] # REORDER
 
-pdf(paste0("plots/Fig2b_DEG_magma_unscaled_", Sys.Date(), ".pdf"), width = 5, height = 6)
+pdf(paste0("plots/SupFig3b_DEG_magma_unscaled_", Sys.Date(), ".pdf"), width = 5, height = 6)
 p <- heatmap.2x(x = input,
      Rowv = TRUE,
      Colv = TRUE,

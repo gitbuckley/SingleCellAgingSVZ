@@ -26,7 +26,7 @@ q <- ggplot(data = d, aes(x=tSNE_1, y=tSNE_2, color=Phase))
 q <- q + geom_point(alpha = 0.4, size=.7)
 q <- q + ggtitle("Cell Cycle")
 q <- q + scale_color_tableau(palette="Tableau 10", type="regular")
-ggsave(paste0("plots/SupFig4g_CellCycle_", Sys.Date(), ".pdf"), q, height = 7, width = 7)
+ggsave(paste0("plots/SupFig4h_CellCycle_", Sys.Date(), ".pdf"), q, height = 7, width = 7)
 
 # tSNE
 q <- ggplot(data = d, aes(x=tSNE_1, y=tSNE_2, color=Phase))

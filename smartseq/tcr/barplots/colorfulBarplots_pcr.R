@@ -27,7 +27,7 @@ young2_tcells<-tcells[as.vector(tcells$Mouse_ID)=="Young_2",]
 qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
 col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
 
-#===========================================================================================================================
+#==================================================================================================
 #Clonality
 #TCRB
 
@@ -79,7 +79,7 @@ for(j in c(5,6)){
   p<-p+scale_fill_manual(values=distinctCols)
   p<-p + theme(legend.position="none") 
   p<-p+coord_flip()
-  pdf(paste0("plots/Fig2E_PCR_OldMouse",j,"_TCRB_AddedCells_", Sys.Date(), ".pdf"),width=10,height=3)
+  pdf(paste0("plots/Fig2D_PCR_OldMouse",j,"_TCRB_AddedCells_", Sys.Date(), ".pdf"),width=10,height=3)
   print(p)
   dev.off()
 
@@ -95,7 +95,7 @@ for(j in c(5,6)){
   p<-p + theme(legend.position="none") 
   p<-p+coord_flip()
   p<-p+ylim(0,160)
-  pdf(paste0("plots/SupFig3D_PCR_OldMouse",j,"_TCRB_AddedCells_fixedaxis_", Sys.Date(), ".pdf"),width=8,height=3)
+  pdf(paste0("plots/SupFig3E_PCR_OldMouse",j,"_TCRB_AddedCells_fixedaxis_", Sys.Date(), ".pdf"),width=8,height=3)
   print(p)
   dev.off()
 }

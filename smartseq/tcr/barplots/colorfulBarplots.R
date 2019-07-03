@@ -98,7 +98,7 @@ for(j in 1:4){
   p<-p + theme(legend.position="none") 
   p<-p+coord_flip()
   #p<-p+ylim(0,160)
-  pdf(paste0("plots/Fig2D_OldMouse",j,"_TCRB_scRNAseq_", Sys.Date(), ".pdf"),width=10,height=3)
+  pdf(paste0("plots/Fig2C_OldMouse",j,"_TCRB_scRNAseq_", Sys.Date(), ".pdf"),width=10,height=3)
   print(p)
   dev.off()
 
@@ -115,7 +115,7 @@ for(j in 1:4){
   p<-p + theme(legend.position="none") 
   p<-p+coord_flip()
   p<-p+ylim(0,160)
-  pdf(paste0("plots/SupFig3C_OldMouse",j,"_TCRB_scRNAseq_fixedaxis_", Sys.Date(), ".pdf"),width=8,height=3)
+  pdf(paste0("plots/SupFig3D_OldMouse",j,"_TCRB_scRNAseq_fixedaxis_", Sys.Date(), ".pdf"),width=8,height=3)
   print(p)
   dev.off()
 

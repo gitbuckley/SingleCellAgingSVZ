@@ -41,7 +41,7 @@ meta_data <- svz@meta.data[cells_loc, ]
 color <- magma(n = 20, direction = -1)
 age_colors <- c("firebrick", "deepskyblue")
 
-pdf(file = paste0("plots/SupFig5d_ifn_aNSC_qNSC_", Sys.Date(), "_.pdf"), width = 8, height = 6)
+pdf(file = paste0("plots/SupFig5e_ifn_aNSC_qNSC_", Sys.Date(), "_.pdf"), width = 8, height = 6)
 heatmap.2(x = ifn_data_sp,
           Rowv = T,
           Colv = T,

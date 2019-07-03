@@ -8,20 +8,20 @@ library(cowplot)
 
 # Load Data
 setwd("~/Desktop/Dropbox/BenNSCProject/10X/Seurat/")
-d <- read.csv(file = "data/svz_All6_Filtered_Jan18.txt", header=T)
+d <- read.csv(file = "data/svz_All6_Filtered_2019-01-31.rda", header=T)
 d <- d[,-1]
 d[1:3,1:11]
 
 # Randomize rows to mix up plotting order
 d <- d[sample(nrow(d)),]
 
-
 # Plot parameters
 a <-  0.7
 s <- .8
 sampleColors <- c("#f41f1f", "darkorange", "firebrick", "deepskyblue", "#ad42f4","slateblue")
 ageColors <- c("firebrick", "deepskyblue")
-ben_colors <- c("#03c03c","#0054b4","#966fd6","#aec6cf","#ffdf00","#ffb347","#e5aa70","#db7093","#e8000d", "#555f6d", "brown")
+ben_colors <- c("#03c03c","#0054b4","#966fd6","#aec6cf","#ffdf00",
+	"#ffb347","#e5aa70","#db7093","#e8000d", "#555f6d", "brown")
 batchColors <- c("#03c03c","#0054b4","#966fd6")
 
 
@@ -51,8 +51,6 @@ q_batch
 ggsave(paste0("plots/All6/customeTSNE_LEG_batch", Sys.Date(), ".pdf"), height = 7, width = 8)
 
 
-
-
 ### Age
 q <- ggplot(data = d, aes(x = tSNE_1, y = tSNE_2, color = Age))
 q <- q + geom_point(alpha=a, size=s)
@@ -75,8 +73,9 @@ q2
 ggsave(paste0("plots/All6/customeTSNE_age_axis_NOLegend", Sys.Date(), ".pdf"), height = 7, width = 6)
 
 ### Cell type
-
-d$Celltypes <- factor(d$Celltype, levels=c("Astrocytes_qNSCs","aNSCs_NPCs","Neuroblasts","Oligodendrocytes","OPC","Endothelial", "Mural_cells","Microglia","T_cells", 'Macrophages', "Neurons"), ordered = T)
+d$Celltypes <- factor(d$Celltype, levels=c("Astrocytes_qNSCs","aNSCs_NPCs","Neuroblasts",
+	"Oligodendrocytes","OPC","Endothelial", "Mural_cells","Microglia","T_cells", 
+	"Macrophages", "Neurons"), ordered = T)
 
 q <- ggplot(data = d, aes(x = tSNE_1, y = tSNE_2, color = Celltypes))
 q <- q + geom_point(alpha=a, size=s)
@@ -106,14 +105,6 @@ pq <- plot_grid(q_y, q_o, ncol = 2)
 pq
 ggsave(paste0("plots/All6/Separated_Age", Sys.Date(), ".pdf"), pq, height = 9, width = 17)
 
-
 fourplots <- plot_grid(q_batch, q_sample, q_y, q_o, ncol = 4)
 fourplots
 ggsave(paste0("plots/All6/Fourplots", Sys.Date(), ".pdf"), fourplots, height = 6, width = 17)
-
-
-
-
-
-
-

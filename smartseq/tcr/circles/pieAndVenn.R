@@ -12,16 +12,15 @@ setwd("~/Desktop/Dropbox/DBN2019/smartseq/tcr/circles")
 # Read in tcr output from "tracer summarise" command from sbatchSummarize scripts
 data_r1 <- read.table("../tracer_cluster/data/TracerOut_Mar15/filtered_TCRAB_summary/recombinants.txt", header=TRUE)
 data_r2 <- read.table("../tracer_cluster/data/TracerOut_Oct19/filtered_TCRAB_summary/recombinants.txt", header=TRUE)
-data_comb <- rbind(data_r1, data_r2)
+data_comb <- rbind(data_r1, data_r2) # 590 by 5
 
 # Use sample name to create addition age and tissue variables
 data2 <- separate(data_comb, cell_name, c("age_rep", "tissue", "other"), sep = "-", remove = F, extra = "drop")
-df <- separate(data2, age_rep, c("age", "rep"), sep = -1, remove = F)
-df_prod <- filter(df, productive == "True")
+df <- separate(data2, age_rep, c("age", "rep"), sep = -1, remove = F) # 590 by 10
+df_prod <- filter(df, productive == "True") # 459  10
 
-# Correct mislabeled tissue
-df2 <- data.frame(lapply(df_prod, function(x) {
-	gsub("BloodCD8", "Blood", x)}))
+# Fix one label
+df2 <- data.frame(lapply(df_prod, function(x) {gsub("BloodCD8", "Blood", x)}))
 
 # Get counts of recombinant ID's by age and tissue AND MOUSE REPLICATE group:
 dfc <- dplyr::count(df2, age, tissue, rep, locus, recombinant_id) # dim(dfc): 292 6
@@ -53,7 +52,7 @@ p <- p + coord_polar("y", start=0)
 p <- p + scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
 p <- p + theme_void()
 p <- p + geom_text(aes(label=as.character(round(plot_df$Value,3))), position = position_stack(vjust = 0.5), size = 6)
-ggsave("plots/Fig2f_Pie_Old_SVZ_clonotype.pdf", p, width=4, height=4)
+ggsave("plots/Fig2e_Pie_Old_SVZ_clonotype.pdf", p, width=4, height=4)
 
 # All Old Blood
 d <-  old_tcells %>% filter(locus == "B", tissue == "Blood")
@@ -69,7 +68,7 @@ p <- p + coord_polar("y", start=0)
 p <- p + scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
 p <- p + theme_void()
 p <- p + geom_text(aes(label=as.character(round(plot_df$Value, 3))), position = position_stack(vjust = 0.5), size = 6)
-ggsave("plots/Fig2f_Pie_Old_Blood_clonotype.pdf", p, width=4, height=4)
+ggsave("plots/Fig2e_Pie_Old_Blood_clonotype.pdf", p, width=4, height=4)
 
 #=======================================================================================
 # Venn Diagram Fig 2
@@ -84,12 +83,12 @@ length(intersect(svz_clones, blood_clones)) # 3
 
 # Pie Fig 2
 p <- euler(c(A = 73, B = 47, "A&B" = 3))
-pdf("plots/Fig2g_Venn.pdf", width=4, height=4)
+pdf("plots/Fig2f_Venn.pdf", width=4, height=4)
 plot(p)
 dev.off()
 
 #=======================================================================================
-# Venn Diagram Ext Fig 3a
+# Venn Diagram Ext Fig 3
 
 d <-  old_tcells %>% filter(locus == "B", rep == 1)
 clones_1 <- unique(d$recombinant_id); length(clones_1) # 38

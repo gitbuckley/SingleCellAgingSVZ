@@ -58,5 +58,5 @@ p <- ggplot(data = dat, aes(x = gene, y = expression, fill = Location)) +
             theme(axis.text.x=element_text(size=12)) +
             theme(axis.text.y=element_text(size=12)) +
             theme(axis.title.x = element_text(size = 12))
-ggsave(paste0("plots/Fig2c_Pd_Ifn_", Sys.Date(), ".pdf"), p, height = 1.8, width = 3.1, bg = "transparent")
+ggsave(paste0("plots/Fig2b_Pd_Ifn_", Sys.Date(), ".pdf"), p, height = 1.8, width = 3.1, bg = "transparent")
 

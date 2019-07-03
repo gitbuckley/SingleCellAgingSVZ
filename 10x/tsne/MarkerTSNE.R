@@ -79,7 +79,7 @@ ggsave(paste0("plots/Fig4a_IFNg_Receptors_", Sys.Date(), ".pdf"), q, height = 7,
 
 #===================================================================================================
 # Bst2
-# SupFig 4H
+# SupFig 4I
 
 # Saturate color at 99.5% percentile of log-normalized expression.
 threshold <- quantile(d$Bst2, .995) # caps at 3.07

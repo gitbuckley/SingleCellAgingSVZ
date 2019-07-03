@@ -5,10 +5,10 @@
 # Matthew Buckley
 
 rm(list=ls())
-library(Seurat)
-library(dplyr)
-library(MAST)
-library(tidyverse)
+library(Seurat) # v2.3.4
+library(dplyr) # v0.7.6
+library(MAST) # v1.4.1
+library(tidyverse) # v1.2.1
 # See sessionInfo() at end of script for version information.
 
 # Modify line below for code checking. All subsequent paths are relative.

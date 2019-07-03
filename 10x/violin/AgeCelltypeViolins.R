@@ -116,8 +116,8 @@ p <- ggplot(data=dplyr::filter(d, celltype != "Neurons"), aes(x=age, y=Bst2)) +
 		    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.title.x = element_blank()) +
 			theme(axis.title.y = element_blank(), axis.text.y = element_text(size = 8)) +
 			theme(strip.text.x = element_text(size = 7)) +
-			theme(legend.position="none")
-			#stat_compare_means()
-ggsave(paste0("plots/SupFig4i_Bst2_10celltypes_", Sys.Date(), ".pdf"), p, height=2.25, width=6)
+			theme(legend.position="none") +
+			stat_compare_means()
+ggsave(paste0("plots/SupFig4i_Bst2_10celltypesStats_", Sys.Date(), ".pdf"), p, height=2.25, width=6)
 
 
